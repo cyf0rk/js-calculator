@@ -4,4 +4,113 @@ body {
   padding: 0;
   height: 100%;
   overflow: hidden;
+  font-family: 'Orbitron';
+}
+
+.calculator {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 15%;
+  left: 35%;
+  width: 330px;
+  padding: 10px;
+  background-color: #c2bea9;
+  border: 1px solid #3d3d3d;
+  border-left: 10px solid #8a8776;
+  border-bottom: 16px solid #6e6b5d;
+  border-radius: 2% 1% 2% 1%;
+}
+
+#cal-screen {
+  height: 40px;
+  width: 320px;
+  font-family: 'Orbitron';
+  font-size: 2em;
+  text-align: right;
+  outline: 2px solid #ebebeb;
+  pointer-events: none;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 12px;
+  font-size: 2em;
+}
+
+.operators {
+  display: flex;
+  flex-direction: column;
+}
+
+.operators div {
+  display: flex;
+  width: 70px;
+  height: 60px;
+  margin-bottom: 10px;
+  background-color: #4d4d4d;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 4px solid #000;
+  border-left: 2px solid #000;
+  border-radius: 10%;
+}
+
+.left-side {
+  margin-right: 12px;
+}
+
+.numbers {
+  display: flex;
+  flex-direction: row;
+}
+
+.numbers div {
+  display: flex;
+  width: 70px;
+  height: 60px;
+  margin-bottom: 10px;
+  background-color: #b0b0b0;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 4px solid #000;
+  border-left: 2px solid #000;
+  border-radius: 10%;
+}
+
+.numbers div:not(:first-child) {
+  margin-left: 12px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+}
+
+#clear {
+  display: flex;
+  width: 70px;
+  height: 60px;
+  background-color: #9c0000;
+  margin-left: 12px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-bottom: 4px solid #000;
+  border-left: 2px solid #000;
+  border-radius: 10%;
+}
+
+.equal {
+  display: flex;
+  width: 154px;
+  height: 60px;
+  background-color: #dedede;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 4px solid #808080;
+  border-left: 2px solid #808080;
+  border-radius: 10%;
 }
