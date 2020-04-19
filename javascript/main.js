@@ -40,7 +40,8 @@ const operations = {
     selectionArr.forEach((value) => {
       valueStr += value;
     });
-    calScreen.value = eval(valueStr);
+    let result = eval(valueStr);
+    calScreen.value = checkDecimal(result);
     selectionArr = [];
     valueStr = '';
   },
@@ -67,6 +68,15 @@ function eventListeners() {
 // Calling all event listeners so that we can use button click events
 eventListeners();
 
+// Checks if number is decimal
+function checkDecimal(result) {
+  if (result % 1 == 0) {
+    return result;
+  } else {
+    return result.toFixed(3);
+  }
+}
+
 // This function will check if provided last index is number or not
 function checkValueType(value, lastIndex) {
   if (isNaN(lastIndex)) {
@@ -79,13 +89,16 @@ function checkValueType(value, lastIndex) {
         selectionArr.splice(selectionArr.length - 1, 1, '/');
         break;
       case '+':
-        selectionArr.splice(selectionArr.length - 1, 1, '+');
+        selectionArr.splice(selectionArr.length - 1, 1, value);
         break;
       case '-':
-        selectionArr.splice(selectionArr.length - 1, 1, '-');
+        selectionArr.splice(selectionArr.length - 1, 1, value);
         break;
       case '%':
-        selectionArr.splice(selectionArr.length - 1, 1, '%');
+        selectionArr.splice(selectionArr.length - 1, 1, value);
+        break;
+      case '.':
+        selectionArr.splice(selectionArr.length - 1, 1, value);
         break;
     }
   } else if (!isNaN(lastIndex)) {
@@ -98,13 +111,16 @@ function checkValueType(value, lastIndex) {
         selectionArr.push('/');
         break;
       case '+':
-        selectionArr.push('+');
+        selectionArr.push(value);
         break;
       case '-':
-        selectionArr.push('-');
+        selectionArr.push(value);
         break;
       case '%':
-        selectionArr.push('%');
+        selectionArr.push(value);
+        break;
+      case '.':
+        selectionArr.push(value);
         break;
     }
   }
