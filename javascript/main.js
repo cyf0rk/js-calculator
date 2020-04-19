@@ -10,6 +10,42 @@ let selectionArr = [];
 // String that will store math operations
 let valueStr = '';
 
+// Object with methods that are executed on button clicks
+const operations = {
+  // Push value of clicked element to selectionArr and add number or operator to calculator screen
+  addVal(el) {
+    elValue = el.target.innerHTML;
+    let lastIndex = selectionArr[selectionArr.length - 1];
+    if (isNaN(elValue)) {
+      // Calling function that will check elValue with statements
+      checkValueType(elValue, lastIndex);
+    } else {
+      selectionArr.push(elValue);
+    }
+    calScreen.value = selectionArr.join('').toString();
+  },
+  // Removes last item of selectionArr array
+  remove() {
+    selectionArr.pop();
+    calScreen.value = selectionArr.join('').toString();
+  },
+  // Clears all inputs
+  clear() {
+    selectionArr = [];
+    valueStr = '';
+    calScreen.value = 0;
+  },
+  // Calculates math operations in valueStr string and displays it to calculator screen
+  calculate() {
+    selectionArr.forEach((value) => {
+      valueStr += value;
+    });
+    calScreen.value = eval(valueStr);
+    selectionArr = [];
+    valueStr = '';
+  },
+};
+
 // Functions that creates all event listeners
 function eventListeners() {
   let numbersBtn = Array.from(numbers);
@@ -27,6 +63,9 @@ function eventListeners() {
   clear.addEventListener('click', operations.clear);
   remove.addEventListener('click', operations.remove);
 }
+
+// Calling all event listeners so that we can use button click events
+eventListeners();
 
 // This function will check if provided last index is number or not
 function checkValueType(value, lastIndex) {
@@ -70,41 +109,3 @@ function checkValueType(value, lastIndex) {
     }
   }
 }
-
-// Object with methods that are executed on button clicks
-const operations = {
-  // Push value of clicked element to selectionArr and add number or operator to calculator screen
-  addVal(el) {
-    elValue = el.target.innerHTML;
-    let lastIndex = selectionArr[selectionArr.length - 1];
-    if (isNaN(elValue)) {
-      checkValueType(elValue, lastIndex);
-    } else {
-      selectionArr.push(elValue);
-    }
-    calScreen.value = selectionArr.join('').toString();
-  },
-  // Removes last item of selectionArr array
-  remove() {
-    selectionArr.pop();
-    calScreen.value = selectionArr.join('').toString();
-  },
-  // Clears all inputs
-  clear() {
-    selectionArr = [];
-    valueStr = '';
-    calScreen.value = 0;
-  },
-  // Calculates math operations in valueStr string and displays it to calculator screen
-  calculate() {
-    selectionArr.forEach((value) => {
-      valueStr += value;
-    });
-    calScreen.value = eval(valueStr);
-    selectionArr = [];
-    valueStr = '';
-  },
-};
-
-// Calling all event listeners so that we can use button events
-eventListeners();
