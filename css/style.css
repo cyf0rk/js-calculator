@@ -7,6 +7,7 @@ body {
   font-family: 'Orbitron';
 }
 
+/* Calculator container */
 .calculator {
   position: absolute;
   display: flex;
@@ -22,6 +23,7 @@ body {
   border-radius: 2% 1% 2% 1%;
 }
 
+/* Calculator output screen */
 #cal-screen {
   height: 40px;
   width: 320px;
@@ -32,6 +34,7 @@ body {
   pointer-events: none;
 }
 
+/* All buttons container */
 .buttons {
   display: flex;
   flex-direction: row;
@@ -39,6 +42,7 @@ body {
   font-size: 2em;
 }
 
+/* Operation buttons +, -, x, / */
 .operators {
   display: flex;
   flex-direction: column;
@@ -58,10 +62,12 @@ body {
   border-radius: 10%;
 }
 
+/* Buttons on the left side of operators */
 .left-side {
   margin-right: 12px;
 }
 
+/* Number buttons */
 .numbers {
   display: flex;
   flex-direction: row;
@@ -84,6 +90,7 @@ body {
   margin-left: 12px;
 }
 
+/* Bottom buttons: equation and clear */
 .bottom {
   display: flex;
   flex-direction: row;
@@ -98,8 +105,8 @@ body {
   align-items: center;
   justify-content: center;
   color: #fff;
-  border-bottom: 4px solid #000;
-  border-left: 2px solid #000;
+  border-bottom: 4px solid #300000;
+  border-left: 2px solid #300000;
   border-radius: 10%;
 }
 
